@@ -15,20 +15,16 @@
         EDIT GUIDE
         ============================================
         
-        COPY:
-        - Replace all [Placeholder: ...] text with final copy
-        - Maintain character limits noted in comments
+        COLOURS:
+        - Accent colour: search for "--accent:" in :root (currently #FF1B6E)
         
         LINKS:
         - Hero buttons: search for "href="#product"" and "href="#cta""
         - Footer social: search for "<!-- Social links -->"
-        - Contact: search for "<!-- Contact placeholder -->"
+        - Contact: search for "contact@thenbrh.co.uk"
         
-        COLOURS:
-        - Accent colour: search for "--accent:" in :root
-        
-        BRAND:
-        - Logo/name: search for "The NBRH"
+        LOGO:
+        - Logo image: search for "NBRH+Logo.png"
         ============================================
         */
         
@@ -117,13 +113,15 @@
         }
         
         .nav-brand {
-            font-family: var(--font-serif);
-            font-weight: 400;
-            font-size: 1.125rem;
-            color: var(--accent);
+            display: flex;
+            align-items: center;
             text-decoration: none;
             white-space: nowrap;
-            letter-spacing: -0.3px;
+        }
+        
+        .nav-logo {
+            height: 32px;
+            width: auto;
         }
         
         .nav-links {
@@ -232,9 +230,15 @@
             }
         }
         
+        .hero-logo {
+            height: 60px;
+            width: auto;
+            margin-bottom: 2rem;
+        }
+        
         .hero h1 {
             margin-bottom: 1.5rem;
-            color: var(--accent);
+            color: var(--text);
         }
         
         .hero-tagline {
@@ -320,6 +324,13 @@
             margin-bottom: 1rem;
         }
         
+        .section-content p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: var(--text-muted);
+            max-width: 75ch;
+        }
+        
         /* CARDS */
         .card-grid {
             display: grid;
@@ -361,6 +372,7 @@
             position: relative;
             margin-bottom: 1rem;
             color: var(--text-muted);
+            font-size: 1.0625rem;
         }
         
         .bullet-list li::before {
@@ -597,12 +609,20 @@
                 gap: 1rem;
             }
             
+            .nav-logo {
+                height: 28px;
+            }
+            
             .nav-links {
                 gap: 1rem;
             }
             
             .nav-links a {
                 font-size: 0.8125rem;
+            }
+            
+            .hero-logo {
+                height: 48px;
             }
             
             .card-grid,
@@ -633,7 +653,9 @@
     <!-- Navigation -->
     <nav role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="#hero" class="nav-brand">The NBRH</a>
+            <a href="#hero" class="nav-brand">
+                <img src="https://images.squarespace-cdn.com/content/6718416feaa24175e29324d4/9d6e6464-e1e5-4dde-9ae0-03df420cbd77/NBRH+Logo.png?content-type=image%2Fpng" alt="The NBRH" class="nav-logo">
+            </a>
             <ul class="nav-links">
                 <li><a href="#problem">Problem</a></li>
                 <li><a href="#solution">Solution</a></li>
@@ -649,12 +671,13 @@
     <!-- Hero -->
     <section id="hero" class="hero visible">
         <div class="container">
-            <div class="badge" role="status">Prototype</div>
+            <img src="https://images.squarespace-cdn.com/content/6718416feaa24175e29324d4/9d6e6464-e1e5-4dde-9ae0-03df420cbd77/NBRH+Logo.png?content-type=image%2Fpng" alt="The NBRH" class="hero-logo">
+            <div class="badge" role="status">Live Platform • Bootstrapped</div>
             <h1>The NBRH (Neighbourhood)</h1>
-            <p class="hero-tagline">[Placeholder: one-line positioning statement explaining what this is and why it exists]</p>
+            <p class="hero-tagline">One platform where London's social sports and exercise classes live: properly searchable, actually bookable, always up to date.</p>
             <div class="button-group">
-                <a href="#cta" class="btn btn-primary">Request access</a>
-                <a href="#product" class="btn btn-secondary">See the product</a>
+                <a href="#cta" class="btn btn-primary">Get involved</a>
+                <a href="#product" class="btn btn-secondary">See how it works</a>
             </div>
         </div>
     </section>
@@ -664,28 +687,10 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">The Problem</div>
-                <h2>[Placeholder: headline describing the core problem]</h2>
-                <ul class="bullet-list">
-                    <li>[Placeholder: first pain point described concisely]</li>
-                    <li>[Placeholder: second pain point in direct language]</li>
-                    <li>[Placeholder: third pain point with clear impact]</li>
-                </ul>
-                <p>[Placeholder: one or two sentences explaining why this problem persists and who it affects most.]</p>
+                <h2>There's no central place to go</h2>
             </div>
-            
-            <div class="card-grid" role="list">
-                <div class="card" role="listitem">
-                    <h3>[Pain Point One]</h3>
-                    <p>[Placeholder: brief description of this specific pain point and its consequences]</p>
-                </div>
-                <div class="card" role="listitem">
-                    <h3>[Pain Point Two]</h3>
-                    <p>[Placeholder: brief description of this specific pain point and its consequences]</p>
-                </div>
-                <div class="card" role="listitem">
-                    <h3>[Pain Point Three]</h3>
-                    <p>[Placeholder: brief description of this specific pain point and its consequences]</p>
-                </div>
+            <div class="section-content">
+                <p>Finding a drop-in football game or yoga class in London means scrolling through dead Facebook groups, checking multiple WhatsApp chats, and piecing together information that's often wrong. There's no central place to go. Organisers face the same fragmentation: juggling bookings through messages, getting zero support, and dealing with platforms that charge fees eating into tight margins. The infrastructure for social sports and exercise classes is scattered and outdated. There should be one obvious place everyone goes. Right now, there isn't.</p>
             </div>
         </div>
     </section>
@@ -695,28 +700,10 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">The Solution</div>
-                <h2>[Placeholder: headline describing the solution approach]</h2>
-                <ul class="bullet-list">
-                    <li>[Placeholder: first value proposition stated clearly]</li>
-                    <li>[Placeholder: second value proposition with tangible benefit]</li>
-                    <li>[Placeholder: third value proposition showing differentiation]</li>
-                </ul>
-                <p>[Placeholder: one or two sentences explaining how this approach solves the stated problem differently.]</p>
+                <h2>NBRH is building that place</h2>
             </div>
-            
-            <div class="card-grid" role="list">
-                <div class="card" role="listitem">
-                    <h3>[Value One]</h3>
-                    <p>[Placeholder: brief description of this value and how it helps users]</p>
-                </div>
-                <div class="card" role="listitem">
-                    <h3>[Value Two]</h3>
-                    <p>[Placeholder: brief description of this value and how it helps users]</p>
-                </div>
-                <div class="card" role="listitem">
-                    <h3>[Value Three]</h3>
-                    <p>[Placeholder: brief description of this value and how it helps users]</p>
-                </div>
+            <div class="section-content">
+                <p>One platform where London's social sports and exercise classes live: properly searchable, actually bookable, always up to date. We charge fair fees that respect club margins, provide tools that help organisers grow, and connect people with sessions they'll love. No hunting across apps, no hidden costs, no treating clubs as revenue streams. Whether you're booking or running sessions, NBRH becomes the default. Make it so straightforward that anything else feels backward.</p>
             </div>
         </div>
     </section>
@@ -726,7 +713,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Who It's For</div>
-                <h2>[Placeholder: headline defining the target audience]</h2>
+                <h2>Built for people and organisers</h2>
             </div>
             
             <div class="two-col">
@@ -735,9 +722,9 @@
                         <h3>Users</h3>
                     </div>
                     <ul class="bullet-list">
-                        <li>[Placeholder: user persona characteristic or need]</li>
-                        <li>[Placeholder: user persona characteristic or need]</li>
-                        <li>[Placeholder: user persona characteristic or need]</li>
+                        <li>Anyone making social sports or exercise classes part of their routine</li>
+                        <li>Whether weekly drop-ins or long-term clubs</li>
+                        <li>People who want to find sessions easily and book quickly</li>
                     </ul>
                 </div>
                 <div>
@@ -745,9 +732,9 @@
                         <h3>Organisers</h3>
                     </div>
                     <ul class="bullet-list">
-                        <li>[Placeholder: organiser persona characteristic or need]</li>
-                        <li>[Placeholder: organiser persona characteristic or need]</li>
-                        <li>[Placeholder: organiser persona characteristic or need]</li>
+                        <li>Clubs who want a better way to reach people</li>
+                        <li>Organisers who need tools to manage bookings</li>
+                        <li>Communities wanting to grow without getting exploited</li>
                     </ul>
                 </div>
             </div>
@@ -759,25 +746,25 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">How It Works</div>
-                <h2>[Placeholder: headline describing the product experience]</h2>
+                <h2>Simple for everyone</h2>
             </div>
             
             <div class="timeline" role="list">
                 <div class="timeline-step" data-step="1" role="listitem">
-                    <h3>[Step Label]</h3>
-                    <p>[Placeholder: one-line description of this step]</p>
+                    <h3>Search</h3>
+                    <p>Find sessions by sport, location, date, or time. All in one place.</p>
                 </div>
                 <div class="timeline-step" data-step="2" role="listitem">
-                    <h3>[Step Label]</h3>
-                    <p>[Placeholder: one-line description of this step]</p>
+                    <h3>Book</h3>
+                    <p>Reserve your spot in seconds. No messaging back and forth.</p>
                 </div>
                 <div class="timeline-step" data-step="3" role="listitem">
-                    <h3>[Step Label]</h3>
-                    <p>[Placeholder: one-line description of this step]</p>
+                    <h3>Turn up</h3>
+                    <p>Show up and play. Everything's confirmed and ready.</p>
                 </div>
                 <div class="timeline-step" data-step="4" role="listitem">
-                    <h3>[Step Label]</h3>
-                    <p>[Placeholder: one-line description of this step]</p>
+                    <h3>Repeat</h3>
+                    <p>Build a routine. NBRH becomes your go-to for staying active.</p>
                 </div>
             </div>
         </div>
@@ -788,25 +775,25 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">How It Makes Money</div>
-                <h2>[Placeholder: headline describing business model]</h2>
+                <h2>Fair and sustainable</h2>
             </div>
             
             <div class="tile-grid" role="list">
                 <div class="tile" role="listitem">
-                    <h3>[Revenue Stream One]</h3>
-                    <p>[Placeholder: description of this monetisation approach]</p>
-                    <div class="tile-footnote">[Placeholder: small detail or caveat about this revenue stream]</div>
+                    <h3>Transaction Fees</h3>
+                    <p>Low fees on bookings that respect club margins and keep costs fair for users.</p>
                 </div>
                 <div class="tile" role="listitem">
-                    <h3>[Revenue Stream Two]</h3>
-                    <p>[Placeholder: description of this monetisation approach]</p>
-                    <div class="tile-footnote">[Placeholder: small detail or caveat about this revenue stream]</div>
+                    <h3>Subscriptions & Services</h3>
+                    <p>Premium tools for organisers and subscription options for frequent users.</p>
                 </div>
                 <div class="tile" role="listitem">
-                    <h3>[Revenue Stream Three]</h3>
-                    <p>[Placeholder: description of this monetisation approach]</p>
-                    <div class="tile-footnote">[Placeholder: small detail or caveat about this revenue stream]</div>
+                    <h3>Partnerships & Events</h3>
+                    <p>Brand partnerships, merchandise, and events that add value to the community.</p>
                 </div>
+            </div>
+            <div style="margin-top: 2rem; text-align: center;">
+                <p style="color: var(--text-muted); font-size: 0.9375rem; max-width: none;">The model keeps costs fair whilst building a sustainable platform serving both users and clubs properly.</p>
             </div>
         </div>
     </section>
@@ -816,21 +803,25 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Why Now</div>
-                <h2>[Placeholder: headline about market timing]</h2>
+                <h2>Social fitness is booming</h2>
+            </div>
+            
+            <div class="section-content" style="margin-bottom: 2.5rem;">
+                <p>Social fitness is booming. Run clubs, pick-up games, group classes: activities combining movement with community are everywhere. The market's massive and spans all ages. But the infrastructure is stuck in 2015. Information scattered across Facebook, WhatsApp, outdated websites. No platform has become the definitive place for social sports and exercise classes. The opportunity is to build something as standard as Google Maps or Trainline. The demand exists. The central hub doesn't. Yet.</p>
             </div>
             
             <div class="card-grid" role="list">
                 <div class="card" role="listitem">
-                    <h3>[Signal One]</h3>
-                    <p>[Placeholder: external trend or reality supporting this timing]</p>
+                    <h3>Traction</h3>
+                    <p>Platform's live. Onboarding clubs across London, building our user base. Early stage, bootstrapped, proving it works with real sessions before scaling.</p>
                 </div>
                 <div class="card" role="listitem">
-                    <h3>[Signal Two]</h3>
-                    <p>[Placeholder: external trend or reality supporting this timing]</p>
+                    <h3>Market Timing</h3>
+                    <p>Social fitness exploding across all demographics. Infrastructure hasn't caught up. First mover advantage is real.</p>
                 </div>
                 <div class="card" role="listitem">
-                    <h3>[Signal Three]</h3>
-                    <p>[Placeholder: external trend or reality supporting this timing]</p>
+                    <h3>Foundation First</h3>
+                    <p>Building trust with clubs and users before scaling. Solid foundation, then growth.</p>
                 </div>
             </div>
         </div>
@@ -840,12 +831,16 @@
     <section id="cta" class="cta-section">
         <div class="container">
             <div class="section-header">
-                <div class="section-label">The Ask</div>
-                <h2>[Placeholder: clear ask or call to action]</h2>
+                <div class="section-label">How We'll Use Funding</div>
+                <h2>Every pound makes NBRH the obvious choice</h2>
+            </div>
+            
+            <div class="section-content" style="margin-bottom: 2.5rem; text-align: center; margin-left: auto; margin-right: auto;">
+                <p style="max-width: 60ch; margin: 0 auto;">Subsidised sessions lowering barriers for newcomers. Micro-influencers in London's sports communities. Targeted social ads. Quality content showing real sessions and real people, not stock photos. Every pound makes NBRH the obvious choice for social sports and exercise in London.</p>
             </div>
             
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">[Primary Action]</a>
+                <a href="mailto:contact@thenbrh.co.uk" class="btn btn-primary">Get in touch</a>
                 <button type="button" class="btn-copy" id="copyLink">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="4" y="4" width="8" height="8" rx="1"/>
@@ -856,11 +851,9 @@
             </div>
             
             <div class="cta-links">
-                <a href="#">[Secondary link one]</a>
-                <a href="#">[Secondary link two]</a>
+                <a href="https://www.thenbrh.co.uk" target="_blank" rel="noopener noreferrer">Visit platform</a>
+                <a href="mailto:contact@thenbrh.co.uk">Email us</a>
             </div>
-            
-            <p class="disclaimer">[Placeholder: brief disclaimer or additional context line]</p>
         </div>
     </section>
     
@@ -870,19 +863,18 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>Contact</h4>
-                    <!-- Contact placeholder -->
-                    <p>[Placeholder: email address]</p>
+                    <p>contact@thenbrh.co.uk</p>
                 </div>
                 <div class="footer-section">
                     <h4>Connect</h4>
                     <!-- Social links -->
-                    <a href="#">[Platform One]</a>
-                    <a href="#">[Platform Two]</a>
-                    <a href="#">[Platform Three]</a>
+                    <a href="https://www.thenbrh.co.uk" target="_blank" rel="noopener noreferrer">Website</a>
+                    <a href="https://www.instagram.com/thenbrh" target="_blank" rel="noopener noreferrer">Instagram</a>
+                    <a href="https://www.linkedin.com/company/thenbrh" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                 </div>
             </div>
             <div class="footer-legal">
-                <p>[Placeholder: legal line or copyright notice]</p>
+                <p>&copy; 2025 The NBRH (Neighbourhood). All rights reserved.</p>
             </div>
         </div>
     </footer>
