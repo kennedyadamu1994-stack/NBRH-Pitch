@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The NBRH (Neighbourhood) – Pitch</title>
+    <meta name="description" content="A pitch presentation for The NBRH (Neighbourhood)">
+    
+    <!--
+    EDIT GUIDE
+    ==========
+    
+    COPY:
+    - Replace all [Placeholder: ...] text with final copy
+    - Maintain character limits noted in comments
+    
+    LINKS:
+    - Hero buttons: search for "href="#product"" and "href="#cta""
+    - Footer social: search for "<!-- Social links -->"
+    - Contact: search for "<!-- Contact placeholder -->"
+    
+    COLOURS:
+    - Accent colour: search for "--accent:" in :root
+    - Dark mode colours: search for "[data-theme="dark"]"
+    
+    BRAND:
+    - Logo/name: search for "The NBRH"
+    -->
+    
+    <style>
+        /* RESET & BASE */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        :root {
+            --accent: #0066cc;
+            --text: #1a1a1a;
+            --text-muted: #666666;
+            --bg: #ffffff;
+            --bg-subtle: #f8f9fa;
+            --border: #e0e0e0;
+            --nav-bg: rgba(255, 255, 255, 0.95);
+            
+            --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-mono: "SF Mono", Monaco, "Cascadia Code", "Consolas", monospace;
+            
+            --max-width: 960px;
+            --spacing-unit: 1.5rem;
+        }
+        
+        [data-theme="dark"] {
+            --accent: #3399ff;
+            --text: #e8e8e8;
+            --text-muted: #a0a0a0;
+            --bg: #0d0d0d;
+            --bg-subtle: #1a1a1a;
+            --border: #333333;
+            --nav-bg: rgba(13, 13, 13, 0.95);
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+        }
+        
+        body {
+            font-family: var(--font-sans);
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* SCROLL PROGRESS */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            z-index: 1000;
+            transition: width 0.1s ease-out;
+        }
+        
+        /* NAVIGATION */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 999;
+        }
+        
+        .nav-container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 1rem var(--spacing-unit);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .nav-brand {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a:focus {
+            color: var(--accent);
+        }
+        
+        .nav-links a.active {
+            color: var(--text);
+            font-weight: 500;
+        }
+        
+        .nav-links a:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+        }
+        
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            padding: 0.5rem;
+            cursor: pointer;
+            border-radius: 4px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            flex-shrink: 0;
+        }
+        
+        .theme-toggle:hover {
+            background: var(--bg-subtle);
+        }
+        
+        .theme-toggle:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        /* CONTAINER */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+        
+        section {
+            padding: 5rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        }
+        
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 3rem 0;
+            }
+        }
+        
+        /* TYPOGRAPHY */
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.1;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+        }
+        
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.25rem);
+            line-height: 1.2;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            margin-bottom: 2rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            line-height: 1.3;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            color: var(--text-muted);
+            max-width: 65ch;
+        }
+        
+        /* HERO */
+        .hero {
+            padding: 8rem 0 6rem;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 4rem 0 3rem;
+            }
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-tagline {
+            font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 50ch;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.375rem 0.75rem;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        /* BUTTONS */
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.875rem 1.75rem;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            font-family: inherit;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            background: var(--bg-subtle);
+        }
+        
+        .btn:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        /* SECTION HEADER */
+        .section-header {
+            margin-bottom: 3rem;
+        }
+        
+        .section-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        /* CARDS */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .card {
+            padding: 2rem;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        
+        .card h3 {
+            margin-bottom: 0.75rem;
+        }
+        
+        .card p {
+            font-size: 0.9375rem;
+        }
+        
+        /* BULLETS */
+        .bullet-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .bullet-list li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+        
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        /* TWO COLUMN */
+        .two-col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 2.5rem;
+        }
+        
+        .col-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
+        }
+        
+        /* TIMELINE */
+        .timeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        
+        .timeline-step {
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        
+        .timeline-step::before {
+            content: attr(data-step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background: var(--accent);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .timeline-step h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-step p {
+            font-size: 0.9375rem;
+        }
+        
+        /* TILES */
+        .tile-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+        
+        .tile {
+            padding: 2rem;
+            background: var(--bg-subtle);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        
+        .tile h3 {
+            margin-bottom: 1rem;
+        }
+        
+        .tile p {
+            font-size: 0.9375rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tile-footnote {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+        
+        /* CTA SECTION */
+        .cta-section {
+            text-align: center;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            margin: 2.5rem 0;
+        }
+        
+        .cta-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9375rem;
+            transition: color 0.2s;
+        }
+        
+        .cta-links a:hover {
+            color: var(--accent);
+        }
+        
+        .disclaimer {
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            margin-top: 2rem;
+        }
+        
+        /* COPY LINK BUTTON */
+        .btn-copy {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.625rem 1.25rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text-muted);
+            font-size: 0.875rem;
+            cursor: pointer;
+            border-radius: 6px;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+        
+        .btn-copy:hover {
+            background: var(--bg-subtle);
+            color: var(--text);
+        }
+        
+        .btn-copy:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 2px;
+        }
+        
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: var(--text);
+            color: var(--bg);
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            opacity: 0;
+            transition: all 0.3s ease-out;
+            z-index: 1001;
+            pointer-events: none;
+        }
+        
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+        
+        /* FOOTER */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0 2rem;
+            margin-top: 6rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h4 {
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-legal {
+            text-align: center;
+            font-size: 0.8125rem;
+            color: var(--text-muted);
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+    
+    <!-- Navigation -->
+    <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#hero" class="nav-brand">The NBRH</a>
+            <ul class="nav-links">
+                <li><a href="#problem">Problem</a></li>
+                <li><a href="#solution">Solution</a></li>
+                <li><a href="#audience">Audience</a></li>
+                <li><a href="#product">Product</a></li>
+                <li><a href="#model">Model</a></li>
+                <li><a href="#why-now">Why Now</a></li>
+                <li><a href="#cta">Ask</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle dark mode" type="button">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                    <circle cx="10" cy="10" r="4"/>
+                    <line x1="10" y1="1" x2="10" y2="3"/>
+                    <line x1="10" y1="17" x2="10" y2="19"/>
+                    <line x1="1" y1="10" x2="3" y2="10"/>
+                    <line x1="17" y1="10" x2="19" y2="10"/>
+                    <line x1="3.5" y1="3.5" x2="5" y2="5"/>
+                    <line x1="15" y1="15" x2="16.5" y2="16.5"/>
+                    <line x1="16.5" y1="3.5" x2="15" y2="5"/>
+                    <line x1="5" y1="15" x2="3.5" y2="16.5"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Hero -->
+    <section id="hero" class="hero visible">
+        <div class="container">
+            <div class="badge" role="status">Prototype</div>
+            <h1>The NBRH (Neighbourhood)</h1>
+            <p class="hero-tagline">[Placeholder: one-line positioning statement explaining what this is and why it exists]</p>
+            <div class="button-group">
+                <a href="#cta" class="btn btn-primary">Request access</a>
+                <a href="#product" class="btn btn-secondary">See the product</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Problem -->
+    <section id="problem">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">The Problem</div>
+                <h2>[Placeholder: headline describing the core problem]</h2>
+                <ul class="bullet-list">
+                    <li>[Placeholder: first pain point described concisely]</li>
+                    <li>[Placeholder: second pain point in direct language]</li>
+                    <li>[Placeholder: third pain point with clear impact]</li>
+                </ul>
+                <p>[Placeholder: one or two sentences explaining why this problem persists and who it affects most.]</p>
+            </div>
+            
+            <div class="card-grid" role="list">
+                <div class="card" role="listitem">
+                    <h3>[Pain Point One]</h3>
+                    <p>[Placeholder: brief description of this specific pain point and its consequences]</p>
+                </div>
+                <div class="card" role="listitem">
+                    <h3>[Pain Point Two]</h3>
+                    <p>[Placeholder: brief description of this specific pain point and its consequences]</p>
+                </div>
+                <div class="card" role="listitem">
+                    <h3>[Pain Point Three]</h3>
+                    <p>[Placeholder: brief description of this specific pain point and its consequences]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Solution -->
+    <section id="solution">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">The Solution</div>
+                <h2>[Placeholder: headline describing the solution approach]</h2>
+                <ul class="bullet-list">
+                    <li>[Placeholder: first value proposition stated clearly]</li>
+                    <li>[Placeholder: second value proposition with tangible benefit]</li>
+                    <li>[Placeholder: third value proposition showing differentiation]</li>
+                </ul>
+                <p>[Placeholder: one or two sentences explaining how this approach solves the stated problem differently.]</p>
+            </div>
+            
+            <div class="card-grid" role="list">
+                <div class="card" role="listitem">
+                    <h3>[Value One]</h3>
+                    <p>[Placeholder: brief description of this value and how it helps users]</p>
+                </div>
+                <div class="card" role="listitem">
+                    <h3>[Value Two]</h3>
+                    <p>[Placeholder: brief description of this value and how it helps users]</p>
+                </div>
+                <div class="card" role="listitem">
+                    <h3>[Value Three]</h3>
+                    <p>[Placeholder: brief description of this value and how it helps users]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Audience -->
+    <section id="audience">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Who It's For</div>
+                <h2>[Placeholder: headline defining the target audience]</h2>
+            </div>
+            
+            <div class="two-col">
+                <div>
+                    <div class="col-header">
+                        <h3>Users</h3>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>[Placeholder: user persona characteristic or need]</li>
+                        <li>[Placeholder: user persona characteristic or need]</li>
+                        <li>[Placeholder: user persona characteristic or need]</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="col-header">
+                        <h3>Organisers</h3>
+                    </div>
+                    <ul class="bullet-list">
+                        <li>[Placeholder: organiser persona characteristic or need]</li>
+                        <li>[Placeholder: organiser persona characteristic or need]</li>
+                        <li>[Placeholder: organiser persona characteristic or need]</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Product -->
+    <section id="product">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">How It Works</div>
+                <h2>[Placeholder: headline describing the product experience]</h2>
+            </div>
+            
+            <div class="timeline" role="list">
+                <div class="timeline-step" data-step="1" role="listitem">
+                    <h3>[Step Label]</h3>
+                    <p>[Placeholder: one-line description of this step]</p>
+                </div>
+                <div class="timeline-step" data-step="2" role="listitem">
+                    <h3>[Step Label]</h3>
+                    <p>[Placeholder: one-line description of this step]</p>
+                </div>
+                <div class="timeline-step" data-step="3" role="listitem">
+                    <h3>[Step Label]</h3>
+                    <p>[Placeholder: one-line description of this step]</p>
+                </div>
+                <div class="timeline-step" data-step="4" role="listitem">
+                    <h3>[Step Label]</h3>
+                    <p>[Placeholder: one-line description of this step]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Model -->
+    <section id="model">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">How It Makes Money</div>
+                <h2>[Placeholder: headline describing business model]</h2>
+            </div>
+            
+            <div class="tile-grid" role="list">
+                <div class="tile" role="listitem">
+                    <h3>[Revenue Stream One]</h3>
+                    <p>[Placeholder: description of this monetisation approach]</p>
+                    <div class="tile-footnote">[Placeholder: small detail or caveat about this revenue stream]</div>
+                </div>
+                <div class="tile" role="listitem">
+                    <h3>[Revenue Stream Two]</h3>
+                    <p>[Placeholder: description of this monetisation approach]</p>
+                    <div class="tile-footnote">[Placeholder: small detail or caveat about this revenue stream]</div>
+                </div>
+                <div class="tile" role="listitem">
+                    <h3>[Revenue Stream Three]</h3>
+                    <p>[Placeholder: description of this monetisation approach]</p>
+                    <div class="tile-footnote">[Placeholder: small detail or caveat about this revenue stream]</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Now -->
+    <section id="why-now">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">Why Now</div>
+                <h2>[Placeholder: headline about market timing]</h2>
+            </div>
+            
+            <div class="card-grid" role="list">
+                <div class="card" role="listitem">
+                    <h3>[Signal One]</h3>
+                    <p>[Placeholder: external trend or reality supporting this timing]</p>
+                </div>
+                <div class="card" role="listitem">
+                    <h3>[Signal Two]</h3>
+                    <p>[Placeholder: external trend or reality supporting this timing]</p>
+                </div>
+                <div class="card" role="listitem">
+                    <h3>[Signal Three]</h3>
+                    <p>[Placeholder: external trend or reality supporting this timing]</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA -->
+    <section id="cta" class="cta-section">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">The Ask</div>
+                <h2>[Placeholder: clear ask or call to action]</h2>
+            </div>
+            
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary">[Primary Action]</a>
+                <button type="button" class="btn-copy" id="copyLink">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="4" y="4" width="8" height="8" rx="1"/>
+                        <path d="M2 9V3a1 1 0 0 1 1-1h6"/>
+                    </svg>
+                    Copy link
+                </button>
+            </div>
+            
+            <div class="cta-links">
+                <a href="#">[Secondary link one]</a>
+                <a href="#">[Secondary link two]</a>
+            </div>
+            
+            <p class="disclaimer">[Placeholder: brief disclaimer or additional context line]</p>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <!-- Contact placeholder -->
+                    <p>[Placeholder: email address]</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <!-- Social links -->
+                    <a href="#">[Platform One]</a>
+                    <a href="#">[Platform Two]</a>
+                    <a href="#">[Platform Three]</a>
+                </div>
+            </div>
+            <div class="footer-legal">
+                <p>[Placeholder: legal line or copyright notice]</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Toast -->
+    <div class="toast" role="status" aria-live="polite" id="toast"></div>
+    
+    <script>
+        // Theme Toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        const html = document.documentElement;
+        
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        html.setAttribute('data-theme', savedTheme);
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+        
+        // Scroll Progress
+        const scrollProgress = document.querySelector('.scroll-progress');
+        
+        function updateScrollProgress() {
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollPercent = (scrollTop / (documentHeight - windowHeight)) * 100;
+            
+            scrollProgress.style.width = scrollPercent + '%';
+            scrollProgress.setAttribute('aria-valuenow', Math.round(scrollPercent));
+        }
+        
+        window.addEventListener('scroll', updateScrollProgress);
+        updateScrollProgress();
+        
+        // Active Nav Link
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('section[id]');
+        
+        function updateActiveNav() {
+            const scrollY = window.pageYOffset;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', updateActiveNav);
+        updateActiveNav();
+        
+        // Intersection Observer for Section Reveals
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -10% 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.classList.contains('visible')) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        sections.forEach(section => {
+            if (!section.classList.contains('visible')) {
+                observer.observe(section);
+            }
+        });
+        
+        // Copy Link Functionality
+        const copyButton = document.getElementById('copyLink');
+        const toast = document.getElementById('toast');
+        
+        copyButton.addEventListener('click', async () => {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                showToast('Link copied to clipboard');
+            } catch (err) {
+                showToast('Failed to copy link');
+            }
+        });
+        
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2500);
+        }
+    </script>
+</body>
+</html>
