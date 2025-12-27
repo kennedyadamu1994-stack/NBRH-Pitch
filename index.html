@@ -384,6 +384,7 @@
             border-radius: var(--radius);
             transition: all 0.3s ease;
             text-align: center;
+            position: relative;
         }
         
         .card:hover {
@@ -400,6 +401,37 @@
             font-size: 0.9375rem;
             text-align: justify;
             text-align-last: center;
+        }
+        
+        /* SOURCE BUTTON */
+        .source-btn {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            background: rgba(255, 27, 110, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: var(--radius);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .source-btn:hover {
+            background: var(--accent);
+            color: white;
+        }
+        
+        .card-footnote {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+            opacity: 0.8;
         }
         
         /* BULLETS */
@@ -740,7 +772,7 @@
             <div class="container">
                 <img src="https://images.squarespace-cdn.com/content/6718416feaa24175e29324d4/9d6e6464-e1e5-4dde-9ae0-03df420cbd77/NBRH+Logo.png?content-type=image%2Fpng" alt="The NBRH" class="hero-logo">
                 <h1>The NBRH (Neighbourhood)</h1>
-                <p class="hero-tagline">Making social exercise affordable, accesible & more organised.</p>
+                <p class="hero-tagline">Making social exercise affordable, accessible & more organised.</p>
                 <div class="button-group">
                     <a href="#visit" class="btn btn-primary">Visit the platform</a>
                     <a href="#product" class="btn btn-secondary">See how it works</a>
@@ -757,8 +789,7 @@
                 <h2>Finding a session shouldn't feel like detective work</h2>
             </div>
             <div class="section-content">
-                <p>You scroll for 40 minutes through dead Facebook groups. Find a session. Link's broken. Try another. It's £18, not the £12 advertised. Six people show up instead of "always busy." You don't go back.</p>
-                <p style="margin-top: 1.5rem;">Organisers have it worse: texting 15 people at 9pm, chasing payments, answering "is there space?" for the fourth time today. All unpaid & after work. Why? Because you care. Sessions fail not from lack of demand, but because the system runs on free labour and goodwill.</p>
+                <p>Finding a drop-in football game or yoga class in London means scrolling through dead Facebook groups, checking multiple WhatsApp chats, and piecing together information that's often wrong. There's no central place to go. Organisers face the same fragmentation: juggling bookings through messages, getting zero support, and dealing with platforms that charge fees eating into tight margins. The infrastructure for social sports and exercise classes is scattered and outdated. There should be one obvious place everyone goes. Right now, there isn't.</p>
             </div>
         </div>
     </section>
@@ -771,8 +802,8 @@
                 <h2>One place for all your social exercise needs.</h2>
             </div>
             <div class="section-content">
-                <p>For users, it makes discovering social exercise quicker by curating all the information you need around multiple activities into one place, saving you time. The NBRH makes it easier by empowering users with tools, giving you more control on your search. And finally, it aims to make booking these session cheaper by implementing low, customer friendly booking fees. Where we can offer subsidised or free sessions, we will.</p>
-                <p style="margin-top: 1.5rem;">For clubs, the NBRH makes growing & managing a club quicker by providing tools and services that reduce admin, outreach, management or research. We make this process easier by consolidating data, booking, management and outreach all in one place, creating an ecosystem clubs can grow in. Finally, we offer our tools and services and affordable prices, so that we aren't eating into the already small margins clubs work with.</p>
+                <p>For users, it makes discovering social exercise quicker by curating all the information you need around multiple activities into one place, saving you time. The NBRH makes it easier by empowering users with tools, giving you more control over your search. And finally, it aims to make booking these sessions cheaper by implementing low, customer-friendly booking fees. Where we can offer subsidised or free sessions, we will.</p>
+                <p style="margin-top: 1.5rem;">For clubs, the NBRH makes growing & managing a club quicker by providing tools and services that reduce admin, outreach, management or research. We make this process easier by consolidating data, booking, management and outreach all in one place, creating an ecosystem clubs can grow in. Finally, we offer our tools and services at affordable prices, so that we aren't eating into the already small margins clubs work with.</p>
             </div>
         </div>
     </section>
@@ -782,7 +813,7 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-label">Why Now</div>
-                <h2>The demand exists. The infrastructure doesn't.</h2>
+                <h2>The demand exists but change is very slow</h2>
                 <p class="section-subtitle">Social fitness is booming. But it's held together with WhatsApp links and free labour.</p>
             </div>
             
@@ -790,19 +821,31 @@
                 <div class="card" role="listitem">
                     <h3>Behaviour Has Shifted</h3>
                     <p>Post-pandemic, people want flexible, social, local activity. With younger generations drinking less and being more active, the future of exercise looks bright.</p>
+                    <a href="https://www.sportengland.org/news-and-inspiration/record-numbers-playing-sport-and-taking-part-physical-activity" target="_blank" rel="noopener noreferrer" class="source-btn">Source</a>
+                    <p class="card-footnote">Sport England: Record numbers playing sport and taking part in physical activity</p>
                 </div>
                 <div class="card" role="listitem">
-                    <h3>Existing Platforms Squeeze Grassroots</h3>
-                    <p>There is a growing contigent of clubs and classes that are leaving legacy platforms, due to a lack of support & control. There is an opportunity to be that new, supportive platform.</p>
+                    <h3>There is more demand for better digital infrastructure</h3>
+                    <p>Industry analysis shows that poor digital experience, limited flexibility, and weak communication tools are major reasons clients churn, highlighting demand for better, more supportive platforms.</p>
+                    <a href="https://www.linkedin.com/posts/fitnessbusinessasia_studios-are-leaving-classpass-and-theyre-activity-7392205223076925440-Hd_v/" target="_blank" rel="noopener noreferrer" class="source-btn">Source</a>
+                    <p class="card-footnote">Fitness Business Asia: Studios are leaving ClassPass and they're not going back</p>
                 </div>
                 <div class="card" role="listitem">
                     <h3>This is a £5 Billion opportunity</h3>
-                    <p>The data points to clear growth in the health, fitness and broader exercise market in the UK, and by extension it suggests rising interest in social exercise to.</p>
+                    <p>The data points to clear growth in the health, fitness and broader exercise market in the UK, and by extension it suggests rising interest in social exercise too.</p>
+                    <a href="https://www.healthclubmanagement.co.uk/health-club-management-press-releases/UK-Health-and-Fitness-Market-report-reveals-exponential-growth-as-penetration-rate-hits-169-and-revenue-grows-88/355449" target="_blank" rel="noopener noreferrer" class="source-btn">Source</a>
+                    <p class="card-footnote">Health Club Management: UK Health and Fitness Market report reveals exponential growth</p>
+                </div>
+                <div class="card" role="listitem">
+                    <h3>A gap that's not being addressed fully</h3>
+                    <p>Surveys show many young people are motivated to be active but cannot find accessible, suitable local opportunities, suggesting a gap in how people discover and access sports and activity options.</p>
+                    <a href="https://sportandrecreation.org.uk/news/survey-reveals-inspired-generation-facing-spo" target="_blank" rel="noopener noreferrer" class="source-btn">Source</a>
+                    <p class="card-footnote">Sport and Recreation Alliance: Survey reveals inspired generation facing barriers</p>
                 </div>
             </div>
             
             <div class="section-content" style="margin-top: 3rem;">
-                <p>There are platforms out there, but nothing that innovates the space. The opportunity is building something as obvious as Spotify A platform so straightforward anything else feels backward.</p>
+                <p>There are platforms out there, but nothing that innovates the space. The opportunity is building something as obvious as Spotify — a platform so straightforward anything else feels backward.</p>
             </div>
         </div>
     </section>
@@ -822,12 +865,12 @@
                     </div>
                     <ul class="bullet-list">
                         <li>Users new to a city and looking for regular sports and classes</li>
-                        <li>20 - 35 Year Olds That Enjoy One Sport</li>
-                        <li>Recent University Graduates</li>
+                        <li>20 - 35 year olds that enjoy one sport</li>
+                        <li>Recent university graduates</li>
                         <li>Students</li>
-                        <li>Parents Looking For Activities For Their Kids</li>
+                        <li>Parents looking for activities for their kids</li>
                         <li>Users that love flexibility and want to try something new</li>
-                        <li>Users that want play competitively</li>
+                        <li>Users that want to play competitively</li>
                     </ul>
                 </div>
                 <div>
@@ -836,9 +879,9 @@
                     </div>
                     <ul class="bullet-list">
                         <li>Club leaders that run clubs in their free time</li>
-                        <li>University Club Captains/Presidents</li>
-                        <li>Team Coaches</li>
-                        <li>User that want to setup private runs</li>
+                        <li>University club captains/presidents</li>
+                        <li>Team coaches</li>
+                        <li>Users that want to set up private runs</li>
                     </ul>
                 </div>
             </div>
@@ -912,7 +955,7 @@
                 <div class="tile" role="listitem">
                     <div class="tile-label">Short Term</div>
                     <h3>Transaction Fees</h3>
-                    <p>In due course, we will introduce small booking fees on event purchases. We will ensure these fees are customer friendly and will only be implemented when we can prove demand.</p>
+                    <p>In due course, we will introduce small booking fees on event purchases. We will ensure these fees are customer-friendly and will only be implemented when we can prove demand.</p>
                 </div>
                 <div class="tile" role="listitem">
                     <div class="tile-label">Short Term</div>
@@ -922,12 +965,12 @@
                 <div class="tile" role="listitem">
                     <div class="tile-label">Medium Term</div>
                     <h3>Subscriptions</h3>
-                    <p>We will offer an affordable membership for users & clubs in order to improve their discovery and growth goals respectively. If users wish to gain access to new session first, remove the transaction fee and receive other exclusive perks, they can sign up for a monthly subscription. For clubs, they can gain additional growth support, data insights, greater outreach power & prime promotional space on our platform.</p>
+                    <p>We will offer an affordable membership for users & clubs in order to improve their discovery and growth goals respectively. If users wish to gain access to new sessions first, remove the transaction fee and receive other exclusive perks, they can sign up for a monthly subscription. For clubs, they can gain additional growth support, data insights, greater outreach power & prime promotional space on our platform.</p>
                 </div>
                 <div class="tile" role="listitem">
                     <div class="tile-label">Medium Term</div>
                     <h3>Merch & Collabs</h3>
-                    <p>Although we have merchandise available now, we plan to push merchandise further. We also intend to work with clubs to collaborate and sell club branded NBRH items.</p>
+                    <p>Although we have merchandise available now, we plan to push merchandise further. We also intend to work with clubs to collaborate and sell club-branded NBRH items.</p>
                 </div>
                 <div class="tile" role="listitem">
                     <div class="tile-label">Long Term</div>
@@ -950,7 +993,7 @@
             </div>
             <div class="section-content">
                 <p>We're built for repeat bookings. As we grow, network effects compound locally: more sessions attract more users, filling more sessions, attracting more organisers. Local density becomes a moat.</p>
-                <p style="margin-top: 1.5rem;">Generalists can copy features. They can't copy trust, 20 years of expertise culture & community.</p>
+                <p style="margin-top: 1.5rem;">Here is what makes us different from other platforms:</p>
             </div>
             
             <ul class="bullet-list" style="margin-top: 2.5rem;">
@@ -960,8 +1003,8 @@
                 <li><strong>Here To Empower</strong> → Various tools & services that make discovery & operations easier</li>
                 <li><strong>Marketing Expertise</strong> → The marketing is driven by someone with 10 years of professional marketing experience</li>
                 <li><strong>Reinvestment</strong> → When ready, we plan to reinvest back into clubs, ensuring that when clubs grow, we grow</li>
-                <li><strong>Sports Expertise</strong> → The platform is created by someone with 20 years of sports experience. Including participation & management</li>
-                <li><strong>Transparent & affordable Pricing</strong> → Any fees or prices on our platform are consumer friendly</li>
+                <li><strong>Sports Expertise</strong> → The platform is created by someone with 20 years of sports experience, including participation & management</li>
+                <li><strong>Transparent & Affordable Pricing</strong> → Any fees or prices on our platform are consumer-friendly</li>
             </ul>
         </div>
     </section>
@@ -976,12 +1019,12 @@
             
             <div class="section-content">
                 <ul class="bullet-list" style="max-width: 75ch;">
-                    <li>20 years of sporting experience. Across basketball & Rugby. Including playing & officiating.</li>
-                    <li>Level 2 qualified Basketball coach for 8 years. Coaching in the University of Leicester & coaching Queen Mary Women's Basketball to League Title.</li>
-                    <li>Worked with sports organisations such as BUCs & Leicester Riders.</li>
-                    <li>University Club Captain & Sports Officer of the University of Leicester Students Union, working alongside senior exec staff of the University.</li>
-                    <li>Professional Digital Marketer with 10 years of experience of with B2B organisations across various industries (Consultation, Charity, Languages & Social Housing)</li>
-                    <li>Avid sport fan with a deep interest in the Basketball, Football, Rugby, Tennis, Formula 1 & American Football</li>
+                    <li>20 years of sporting experience. Across basketball & rugby. Including playing & officiating.</li>
+                    <li>Level 2 qualified basketball coach for 8 years. Coaching at the University of Leicester & coaching Queen Mary Women's Basketball to a league title.</li>
+                    <li>Worked with sports organisations such as BUCS & Leicester Riders.</li>
+                    <li>University club captain & sports officer of the University of Leicester Students Union, working alongside senior executive staff of the University.</li>
+                    <li>Professional digital marketer with 10 years of experience with B2B organisations across various industries (consultation, charity, languages & social housing).</li>
+                    <li>Avid sports fan with a deep interest in basketball, football, rugby, tennis, Formula 1 & American football.</li>
                 </ul>
             </div>
         </div>
